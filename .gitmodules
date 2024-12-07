@@ -1,0 +1,3 @@
+[submodule "3rd/datachannel"]
+	path = 3rd/datachannel
+	url = https://github.com/satsuma22/libdatachannel.git
