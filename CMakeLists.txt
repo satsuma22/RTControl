@@ -4,9 +4,38 @@ project(RTControl)
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(RTCONTROL_HEADERS "")
+set(RTCONTROL_HEADERS 
+	${CMAKE_CURRENT_SOURCE_DIR}/src/App.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Controller.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LiveStream.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/PacketQueue.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Statistics.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/dispatchqueue.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/DummyOpusStream.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/h264Stream.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/helpers.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/stream.hpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/CaptureApp.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/Capturer.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/pch.h
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/util.h	
+)
+
 set(RTCONTROL_SOURCES 
 	${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/App.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Controller.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/LiveStream.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/PacketQueue.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Statistics.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/dispatchqueue.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/DummyOpusStream.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/h264Stream.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/helpers.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Streamer/stream.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/CaptureApp.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/Capturer.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/pch.cpp
 )
 
 add_executable(RTControl ${RTCONTROL_SOURCES} ${RTCONTROL_HEADERS})

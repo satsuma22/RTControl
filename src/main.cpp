@@ -1,9 +1,23 @@
-#include "rtc/rtc.hpp"
+#include <iostream>
+#include "App.h"
 
-int main()
+
+int main(int argc, char* argv[])
 {
-    rtc::Configuration config;
-    config.iceServers.emplace_back("mystunserver.org:3478");
+	App app;
 
-    rtc::PeerConnection pc(config);
+	if (argc == 1)
+	{
+		app.Init();
+	}
+	else if (argc == 2)
+	{
+		std::string title = argv[1];
+		app.InitWithStartCapture(title);
+	}
+
+	app.Run();
+	app.Close();
+
+	return 0;
 }

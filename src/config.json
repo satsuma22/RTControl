@@ -1,0 +1,28 @@
+{
+        "Encoder": {
+                "Bitrate Average": 4000000,
+                "Bitrate Max": 4000000,
+                "GOP Length": 60,
+                "I-Frames Only": 0,
+                "IDR Period": 60,
+                "OutputDelay": 3,
+                "Preset": 4,
+                "QP": 25,
+                "Rate Control Mode": "CBR",
+                "Rate Control Mode Comment": "CBR / VBR / CQP / Target Quality",
+                "Target Quality": 25,
+                "fps": 60
+        },
+        "Global": {
+                "CaptureCursor": 1,
+                "CaptureMode": "Monitor",
+                "CaptureMode_comment": "Monitor / Window",
+                "List": {
+                        "Untitled - Notepad": "notepad.exe",
+                        "Untitled - Paint": "mspaint.exe"
+                }
+        },
+        "Streamer": {
+                "fps": 120
+        }
+}
