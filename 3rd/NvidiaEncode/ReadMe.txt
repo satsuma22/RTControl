@@ -1,0 +1,1 @@
+A copy of the license agreement is provided in LicenseAgreement.pdf
