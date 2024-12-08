@@ -52,7 +52,7 @@ class WindowController
 {
 public:
 	WindowController();
-	WindowController(LPCWSTR title);
+	WindowController(LPCSTR title);
 	WindowController(HWND handle);
 
 	void AttachController(HWND hwnd);

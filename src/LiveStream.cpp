@@ -40,7 +40,7 @@ void LiveStream::ReadConfigFile()
 void LiveStream::CreatePeerConnection(const rtc::Configuration& config, std::weak_ptr<rtc::WebSocket> wws, std::string id)
 {
     auto pc = std::make_shared<rtc::PeerConnection>(config);
-    auto client = make_shared<Client>(pc);
+    auto client = std::make_shared<Client>(pc);
 
     clients[id] = client;
 
@@ -262,7 +262,7 @@ void LiveStream::StartCapture()
 void LiveStream::LaunchCapturer(HWND hwnd)
 {
     //LoadLibrary(L"C:/Windows/System32/nvEncodeAPI64.dll");
-    LoadLibrary(L"nvEncodeAPI64.dll");
+    LoadLibrary("nvEncodeAPI64.dll");
 
     winrt::init_apartment(winrt::apartment_type::single_threaded);
 

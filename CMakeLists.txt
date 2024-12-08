@@ -18,7 +18,9 @@ set(RTCONTROL_HEADERS
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/CaptureApp.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/Capturer.h
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/pch.h
-	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/util.h	
+	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/util.h
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/NvCodec/NvEncoder/NvEncoder.h
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/NvCodec/NvEncoder/NvEncoderD3D11.h
 )
 
 set(RTCONTROL_SOURCES 
@@ -36,9 +38,20 @@ set(RTCONTROL_SOURCES
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/CaptureApp.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/Capturer.cpp
 	${CMAKE_CURRENT_SOURCE_DIR}/src/Capturer/pch.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/NvCodec/NvEncoder/NvEncoder.cpp
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/NvCodec/NvEncoder/NvEncoderD3D11.cpp
 )
 
 add_executable(RTControl ${RTCONTROL_SOURCES} ${RTCONTROL_HEADERS})
+
+target_include_directories(RTControl PRIVATE 
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/datachannel/deps/json/include
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/NvCodec
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Samples/Utils
+	${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Interface
+)
+
+target_compile_definitions(RTControl PRIVATE NOMINMAX WIN32_LEAN_AND_MEAN)
 
 # Turn off building examples and tests projects for libdatachannel
 set(NO_EXAMPLES ON)
@@ -46,7 +59,10 @@ set(NO_TESTS ON)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rd)
 
-target_link_libraries(RTControl PRIVATE datachannel)
+target_link_libraries(RTControl PRIVATE 
+	datachannel
+	"${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Lib/x64/nvencodeapi.lib"
+)
 
 set(DATACHANNEL_DLL_PATH_DEBUG "${PROJECT_SOURCE_DIR}/build/3rd/datachannel/Debug/datachannel.dll")
 set(DATACHANNEL_DLL_PATH_RELEASE "${PROJECT_SOURCE_DIR}/build/3rd/datachannel/Release/datachannel.dll")

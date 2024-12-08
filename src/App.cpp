@@ -20,13 +20,13 @@ void App::Init()
 	m_webSocket->onError([](const std::string& error) { std::cout << "WebSocket failed: " << error << std::endl; });
 
 	m_webSocket->onMessage([&](std::variant<rtc::binary, std::string> data) {
-		if (!holds_alternative<std::string>(data))
+		if (!std::holds_alternative<std::string>(data))
 			return;
 
 		rtc::Configuration& config = m_config;
 		std::shared_ptr<rtc::WebSocket> ws = m_webSocket;
 
-		nlohmann::json message = nlohmann::json::parse(get<std::string>(data));
+		nlohmann::json message = nlohmann::json::parse(std::get<std::string>(data));
 		MainThread.dispatch([message, config, ws, this]() {
 			wsOnMessage(message, config, ws);
 			});

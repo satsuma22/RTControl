@@ -7,7 +7,7 @@ WindowController::WindowController()
 
 }
 
-WindowController::WindowController(LPCWSTR title)
+WindowController::WindowController(LPCSTR title)
 {
 	m_Handle = FindWindow(NULL, title);
 	if (m_Handle)
