@@ -149,8 +149,8 @@
         const vidElem = document.getElementById("videoplayer");
 
         vidElem.addEventListener("mousedown", (event) => {
-            console.log("mousedown");
-            console.log(event)
+            //console.log("mousedown");
+            //console.log(event)
             const rect = vidElem.getBoundingClientRect();
             let x = Math.ceil(event.clientX - rect.x);
             let y = Math.ceil(event.clientY - rect.y);
@@ -169,8 +169,8 @@
         })
 
         vidElem.addEventListener("mouseup", (event) => {
-            console.log("mouseup")
-            console.log(event)
+            //console.log("mouseup")
+            //console.log(event)
             const rect = vidElem.getBoundingClientRect();
             let x = Math.ceil(event.clientX - rect.x);
             let y = Math.ceil(event.clientY - rect.y);
@@ -190,8 +190,8 @@
 
 
         vidElem.addEventListener("mousemove", (event) => {
-            console.log("movemove");
-            console.log(event);
+            //console.log("movemove");
+            //console.log(event);
             const rect = vidElem.getBoundingClientRect();
             let x = Math.ceil(event.clientX - rect.x);
             let y = Math.ceil(event.clientY - rect.y);
@@ -212,8 +212,8 @@
 
 
         vidElem.addEventListener("wheel", (event) => {
-            console.log("wheel");
-            console.log(event);
+            //console.log("wheel");
+            //console.log(event);
             const rect = vidElem.getBoundingClientRect();
             let x = Math.ceil(event.clientX - rect.x);
             let y = Math.ceil(event.clientY - rect.y);
@@ -230,13 +230,12 @@
                 type : event.type
             }
 
-            dc.send(JSON.stringify(input));
-            //event.stopImmediatePropagation()
+            dc.send(JSON.stringify(input))
             event.stopPropagation();
         })
 
         window.addEventListener("keydown", (event) => {
-            console.log(event);
+            //console.log(event);
             let input = {
                 eventType : "KeyboardEvent",
                 altKey : event.altKey,
@@ -252,7 +251,7 @@
         })
 
         window.addEventListener("keyup", (event) => {
-            console.log(event);
+            //console.log(event);
             let input = {
                 eventType : "KeyboardEvent",
                 altKey : event.altKey,
