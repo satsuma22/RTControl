@@ -205,18 +205,18 @@ void App::WriteDefaultConfigFile()
     settings["Global"]["CaptureCursor"] = 1;
 
     //Streamer Settings
-    settings["Streamer"]["fps"] = 120;
+    settings["Streamer"]["fps"] = 240;
 
     //Encoder Settings
     settings["Encoder"]["Bitrate Average"] = 40000000;
     settings["Encoder"]["Bitrate Max"] = 40000000;
-    settings["Encoder"]["fps"] = 60;
+    settings["Encoder"]["fps"] = 144;
     settings["Encoder"]["GOP Length"] = 60;
     settings["Encoder"]["IDR Period"] = 60;
     settings["Encoder"]["I-Frames Only"] = 0;
     settings["Encoder"]["OutputDelay"] = 1;
     settings["Encoder"]["Preset"] = 4;
-    settings["Encoder"]["Rate Control Mode"] = "CBR";
+    settings["Encoder"]["Rate Control Mode"] = "VBR";
     settings["Encoder"]["Rate Control Mode Comment"] = "CBR / VBR / CQP / Target Quality";
     settings["Encoder"]["QP"] = 25;
     settings["Encoder"]["Target Quality"] = 25;
