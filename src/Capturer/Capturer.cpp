@@ -335,12 +335,7 @@ void Capturer::OnFrameArrivedForMonitorCapture(winrt::Windows::Graphics::Capture
     bool swapChainResizedToFrame = false;
 
     auto frame = sender.TryGetNextFrame();
-    {
-       // auto time = frame.SystemRelativeTime().count();
-        //auto now = std::chrono::high_resolution_clock::now().time_since_epoch().count();
-        //std::cout << "Frame: " << time << std::endl;
-        //std::cout << "Now:   " <<  now / 100 << std::endl;
-    }
+    
     swapChainResizedToFrame = TryResizeSwapChainForMonitorCapture(frame);
 
     if (!m_packetQueue->IsWriteReady())
@@ -353,7 +348,6 @@ void Capturer::OnFrameArrivedForMonitorCapture(winrt::Windows::Graphics::Capture
     pEncBuf = (ID3D11Texture2D*)pEncInput->inputPtr;
 
     auto surfaceTexture = GetDXGIInterfaceFromObject<ID3D11Texture2D>(frame.Surface());
-    //m_d3dContext->CopyResource(pEncBuf, surfaceTexture.get());
     
     {
         D3D11_BOX box;

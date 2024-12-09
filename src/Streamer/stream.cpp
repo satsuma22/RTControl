@@ -67,8 +67,6 @@ std::pair<std::shared_ptr<StreamSource>, Stream::StreamSourceType> Stream::unsaf
 }
 
 void Stream::sendSample() {
-    //Timer t("SendSample");
-    //std::cout << "===TIME===: (DispatchPop) " << std::chrono::system_clock::now() << "\n";
 
     std::lock_guard lock(mutex);
     if (!isRunning) {
@@ -81,7 +79,6 @@ void Stream::sendSample() {
     StatPacket packet = ss->getPacket();
     sampleHandler(sst, ss->getSampleTime_us(), sample, packet);
     ss->loadNextSample();
-    //std::cout << "===TIME===: (DispatchPush) " << std::chrono::system_clock::now() << "\n";
   
     dispatchQueue.dispatch([this]() {
         this->sendSample();

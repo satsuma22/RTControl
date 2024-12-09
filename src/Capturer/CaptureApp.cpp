@@ -18,9 +18,6 @@ CaptureApp::CaptureApp(PacketQueue* packetQueue, HWND hwnd)
 {
 	m_hwnd = hwnd;
 
-	m_mainThread = winrt::Windows::System::DispatcherQueue::GetForCurrentThread();
-	//WINRT_VERIFY(m_mainThread != nullptr);
-
 	HRESULT hr = D3D11CreateDevice(nullptr, D3D_DRIVER_TYPE_HARDWARE, nullptr, D3D11_CREATE_DEVICE_BGRA_SUPPORT, nullptr, 0, D3D11_SDK_VERSION, d3dDevice.put(),
 		nullptr, nullptr);
 	winrt::check_hresult(hr);

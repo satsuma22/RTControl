@@ -29,7 +29,6 @@ protected:
 private:
 	uint64_t sampleDuration_us;
 	uint64_t sampleTime_us = 0;
-    //RenderQueue* m_renderQueue;
     PacketQueue* m_packetQueue;
     StatPacket statPacket;
 

@@ -32,27 +32,12 @@ void h264Stream::stop()
 
 void h264Stream::loadNextSample()
 {
-    //std::cout << "===TIME===: (loadNextSample) " << std::chrono::system_clock::now() << "\n";
-
 	sampleTime_us += sampleDuration_us;
 	
-    /*
-    if (!m_packetQueue->IsReadReady())
     {
-		return;
-    }
-    */
-
-    //Timer t("PakcetLoad");
-    //std::cout << "===TIME===: (LoadBegin) " << std::chrono::system_clock::now() << "\n";
-
-    {
-        //Timer t("FrontBuffer-Copy");
         m_packetQueue->Load(sample, statPacket);
         statPacket.QueuePop = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     }
-    //std::cout << "===TIME===: (LoadEnd) " << std::chrono::system_clock::now() << "\n";
-
 
     size_t i = 0;
     while (i < sample.size())
@@ -96,7 +81,6 @@ void h264Stream::loadNextSample()
             break;
         }
     }
-    //std::cout << "===TIME===: (loadNextFrameEnd) " << std::chrono::system_clock::now() << "\n";
 
 }
 
