@@ -32,3 +32,4 @@
 *.app
 
 build/*
+3rd/NvidiaEncode/*
