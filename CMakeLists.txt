@@ -59,17 +59,20 @@ set(NO_TESTS ON)
 
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/3rd)
 
-target_link_libraries(RTControl PRIVATE 
-	datachannel
-	"${CMAKE_CURRENT_SOURCE_DIR}/3rd/NvidiaEncode/Lib/x64/nvencodeapi.lib"
-)
+target_link_libraries(RTControl PRIVATE datachannel)
+
+if (DEFINED ENV{NVIDIAENCODE_ROOT_DIR})
+	target_link_libraries(RTControl PRIVATE "$ENV{NVIDIAENCODE_ROOT_DIR}/Lib/x64/nvencodeapi.lib")
+else()
+	message(FATAL_ERROR "The environment variable NVIDIAENCODE_ROOT_DIR is not set!")
+endif()
 
 set(DATACHANNEL_DLL_PATH_DEBUG "${PROJECT_SOURCE_DIR}/build/3rd/datachannel/Debug/datachannel.dll")
 set(DATACHANNEL_DLL_PATH_RELEASE "${PROJECT_SOURCE_DIR}/build/3rd/datachannel/Release/datachannel.dll")
 
 if (DEFINED ENV{OPENSSL_ROOT_DIR})
-	set(LIBCRYPTO_DLL_PATH "$ENV{OPENSSL_ROOT_DIR}/bin/libcrypto-1_1-x64.dll")
-	set(LIBSSL_DLL_PATH "$ENV{OPENSSL_ROOT_DIR}/bin/libssl-1_1-x64.dll")
+	file(GLOB LIBCRYPTO_DLL_PATH "$ENV{OPENSSL_ROOT_DIR}/bin/libcrypto-*-x64.dll")
+	file(GLOB LIBSSL_DLL_PATH "$ENV{OPENSSL_ROOT_DIR}/bin/libssl-*-x64.dll")
 endif()
 
 add_custom_command(TARGET RTControl POST_BUILD
