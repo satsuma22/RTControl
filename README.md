@@ -16,8 +16,8 @@ At the moment, the RTControl is only compatible with systems that are running Wi
 
 ## Dependencies
 RTControl depends on [libdatachannel](https://github.com/paullouisageneau/libdatachannel/tree/master) for WebRTC support and on [Nvidia Video Codec SDK](https://developer.nvidia.com/video-codec-sdk) for hardware-accelerated encoding.
--[Nvidia Video Codec SDK](https://developer.nvidia.com/nvidia-video-codec-sdk): can be downloaded [here](https://developer.nvidia.com/nvidia-video-codec-sdk/download) (requires sign-in/up).
--[libdatachannel](https://github.com/paullouisageneau/libdatachannel/tree/master) is available as a submodule. All of [libdatachannel's](https://github.com/paullouisageneau/libdatachannel/tree/master) dependencies (except for [OpenSSL](https://www.openssl.org/)) are also available as submodlues. [OpenSSL](https://www.openssl.org/) binaries for windows can be dowloaded [here](https://kb.firedaemon.com/support/solutions/articles/4000121705-openssl-3-1-3-0-and-1-1-1-binary-distributions-for-microsoft-windows).
+*[Nvidia Video Codec SDK](https://developer.nvidia.com/nvidia-video-codec-sdk): can be downloaded [here](https://developer.nvidia.com/nvidia-video-codec-sdk/download) (requires sign-in/up).
+*[libdatachannel](https://github.com/paullouisageneau/libdatachannel/tree/master) is available as a submodule. All of [libdatachannel's](https://github.com/paullouisageneau/libdatachannel/tree/master) dependencies (except for [OpenSSL](https://www.openssl.org/)) are also available as submodlues. [OpenSSL](https://www.openssl.org/) binaries for windows can be dowloaded [here](https://kb.firedaemon.com/support/solutions/articles/4000121705-openssl-3-1-3-0-and-1-1-1-binary-distributions-for-microsoft-windows).
 
 Additionally, you will need to install [node.js](https://nodejs.org/en) for the signalling server.
 
@@ -57,9 +57,9 @@ RTControl.exe "Application Window Title"
 In default mode, ```RTControl``` doesn't capture any application immediately. Rather, the user of the client-side can choose to launch (and capture) an application from a list of application (specified in ```config.json```). In capture initialized mode, ```RTControl``` will start capturing the application whose window title was passed on as the second command line argument.
 
 To connect to the ```Signaling Server``` from the client-side browser, go to 
--```localhost:8000``` if the client and the server are on the same PC,
--```<LAN_IP_ADDRESS>:8000``` if the client and the server are in the same Local Area Network
--```<WAN_IP_ADDRESS>:8000``` if the client and the server are in different networks
+*```localhost:8000``` if the client and the server are on the same PC,
+*```<LAN_IP_ADDRESS>:8000``` if the client and the server are in the same Local Area Network
+*```<WAN_IP_ADDRESS>:8000``` if the client and the server are in different networks
 
 When you land on the home page of the application, use the same ```IP_ADDRESS:PORT_NUMBER``` from the previous step to connect to the ```RTControl``` server.
 
