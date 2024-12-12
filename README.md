@@ -64,4 +64,21 @@ To connect to the ```Signaling Server``` from the client-side browser, go to:
 When you land on the home page of the application, use the same ```IP_ADDRESS:PORT_NUMBER``` from the previous step to connect to the ```RTControl``` server.
 
 ## Configuration
-TODO:
+Settings for ```RTControl``` can be configured via the ```config.json``` file. If this file is missing, running the application will create a ```config.json``` file with default values. Settings that can be configured are:
+* ```Encoder Settings```
+  * ```Bitrate Average```: average bitrate of the encoded video in bps.
+  * ```Bitrate Max```: maximum bitrate of the encoded video in bps.
+  * ```GOP Length```: Length of Group-of-Pictures. Essentially determines how often a key frame is sent.
+  * ```I-Frames Only```:(0/1) Whether or not to use only key frames. Useful when dealing with packey loss.
+  * ```OutputDelay```: Determines how long after receiving a raw frame, an encoded frame gets generated. Measured in number of frames. 
+  *  ```Preset```: (1-7) Determines the trade-off between encoding speed and compression efficiency.
+  *  ```QP```: (0-51) Determines the trade-off between picture quality and compression efficiency.
+  *  ```Rate Control Mode```: Selects the rate control mode, for example CBR (constant-bit-rate), VBR (variable-bit-rate), etc.
+  * ```Target Quality```: (0-51) Sets the desired ```QP``` for ```Rate Control Mode = Target Quality```.
+  * ```fps```: Frames-per-second for the encoder. Should be equal to you monitors refresh rate.
+* ```Global Settings```
+  * ```CaptureCursor```: (0/1) Whether or not to capture cursor.
+  * ```CaptureMode```: (Monitor/Window) ```Window``` mode will only capture the application you're trying to stream. Any overlapping window will not be captured. However, this mode will not capture any child windows either (such as drop down windows). ```Monitor``` mode captures the entire monitor and then crops out the application window. This mode captures child windows as well (as long as they are overlapping with the parent window).
+ * ```List```: Is a list of applications that the user can launch from the client-side, when the server is launched in default mode. The key needs to be an exact match of the window title of the application when launched and the value needs to be the command (including path, if required) to launch the application.
+* ```Streamer Settings```
+  * ```fps```: Frames-per-second for the streamer. Always set this to be higher than ```Encoder:fps``` for lowest possible latency.
