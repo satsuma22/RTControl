@@ -79,6 +79,6 @@ Settings for ```RTControl``` can be configured via the ```config.json``` file. I
 * ```Global Settings```
   * ```CaptureCursor```: (0/1) Whether or not to capture cursor.
   * ```CaptureMode```: (Monitor/Window) ```Window``` mode will only capture the application you're trying to stream. Any overlapping window will not be captured. However, this mode will not capture any child windows either (such as drop down windows). ```Monitor``` mode captures the entire monitor and then crops out the application window. This mode captures child windows as well (as long as they are overlapping with the parent window).
- * ```List```: Is a list of applications that the user can launch from the client-side, when the server is launched in default mode. The key needs to be an exact match of the window title of the application when launched and the value needs to be the command (including path, if required) to launch the application.
+  * ```List```: Is a list of applications that the user can launch from the client-side, when the server is launched in default mode. The key needs to be an exact match of the window title of the application when launched and the value needs to be the command (including path, if required) to launch the application.
 * ```Streamer Settings```
   * ```fps```: Frames-per-second for the streamer. Always set this to be higher than ```Encoder:fps``` for lowest possible latency.
