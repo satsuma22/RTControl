@@ -38,6 +38,13 @@ cmake ..
 
 This will generate the project files for Visual Studios. Open the project and select ```Debug``` or ```Release``` mode and hit build.
 
+Next, you will need to build the client-side web application. This involves downloading the dependencies and building the Svelte app. This can be done by running the following commands:
+```bash
+cd web/ClientApp/
+npm install
+npm run build
+```
+
 ## Usage
 ```RTControl``` will only encode video if the application is running on an Nvidia GPU. If you are running this application on a laptop with a discrete Nvidia GPU, the application might still default to running on your integrated GPU. You can select which GPU the application will run on by changing settings in the ```Nvidia Control Panel```. On desktops with Nvidia GPU, this shouldn't be a problem.
 
