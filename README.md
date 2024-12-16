@@ -92,6 +92,6 @@ Settings for ```RTControl``` can be configured via the ```config.json``` file. I
   * ```fps```: Frames-per-second for the streamer. Always set this to be higher than ```Encoder:fps``` for lowest possible latency.
  
 ## Latency Measurement
-![Latency Image](latency_120hz.png)
-
 Under ideal conditions, the overall streaming latency is about 2-frame-time (+network delay). For example, when streaming a 120hz (or 8.33ms per frame) video to the same PC (negligible network latency), the overall system latency is about 17ms (2 x 8.33ms). 
+
+![Latency Image](latency_120hz.png)
