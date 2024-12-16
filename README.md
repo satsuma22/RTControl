@@ -93,3 +93,5 @@ Settings for ```RTControl``` can be configured via the ```config.json``` file. I
  
 ## Latency Measurement
 Under ideal conditions, the overall streaming latency is about 2-frame-time (+network delay). For example, when streaming a 120hz (or 8.33ms per frame) video to the same PC (negligible network latency), the overall system latency is about 17ms (2 x 8.33ms). 
+
+![latency image](latency_120hz.png)
