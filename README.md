@@ -7,6 +7,7 @@
 - [Building](#building)
 - [Usage](#usage)
 - [Configuration](#configuration)
+- [Latency Measurement](#latency-mesurement)
 
 ## About the Project
 RTControl is command line tool that let's you self-host 3D applications on Windows. It uses WebRTC and hardware-accelarated video encoding to deliver low-latency streaming.
@@ -89,3 +90,8 @@ Settings for ```RTControl``` can be configured via the ```config.json``` file. I
   * ```List```: Is a list of applications that the user can launch from the client-side, when the server is launched in default mode. The key needs to be an exact match of the window title of the application when launched and the value needs to be the command (including path, if required) to launch the application.
 * ```Streamer Settings```
   * ```fps```: Frames-per-second for the streamer. Always set this to be higher than ```Encoder:fps``` for lowest possible latency.
+ 
+## Latency Measurement
+![Latency Image](latency_120hz.png)
+
+Under ideal conditions, the overall streaming latency is about 2-frame-time (+network delay). For example, when streaming a 120hz (or 8.33ms per frame) video to the same PC (negligible network latency), the overall system latency is about 17ms (2 x 8.33ms). 
